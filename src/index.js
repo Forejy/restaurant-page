@@ -1,15 +1,18 @@
 import "./styles.css"
+import { articleHome } from "./tab1"
+import { articleMenu } from "./tab2"
 
 function sectionTabs() {
 
   function createHeader () {
     let header = document.createElement("header")
-    let content = ["Home", "Menu", "Contact"]
-
+    let content = ["Home", "Menu", "L'Histoire", "Emplacement", "Contact"]
+    let len = content.length
     let tab = document.createElement("div")
 
+    header.className = "tab-bars"
     tab.className = "tab"
-    for (let i = 0; i <= 2; i++) {
+    for (let i = 0; i < len; i++) {
       tab.innerHTML = content[i]
       header.appendChild(tab)
       tab = tab.cloneNode()
@@ -19,19 +22,21 @@ function sectionTabs() {
   }
 
   function createArticles() {
+    let section = document.createElement("section")
     let article = document.createElement("article")
-    let content = ["Content 1", "Content 2", "Content 3"]
-    let fragment = document.createDocumentFragment()
+    let content = ["Content 1", "Content 2", "Content 3", "Content 4", "Content 5",]
+    let len = content.length
 
+    section.className = "section-articles"
     article.className = "article d-hidden"
-    for (let i = 0; i <= 2; i++) {
-      article.innerHTML = content[i]
-      fragment.appendChild(article)
+    for (let i = 0; i < len; i++) {
+      article.innerText = content[i]
+      section.appendChild(article)
       article = article.cloneNode()
     }
-    fragment.firstChild.className = "article"
+    section.firstChild.className = "article"
 
-    return fragment
+    return section
   }
 
   function appendElements () {
@@ -46,11 +51,13 @@ function sectionTabs() {
   function handleClick() {
     let tabs = document.getElementsByClassName("tab");
     let articles = document.getElementsByClassName("article");
-    for(let i = 0; i < 3; i++)
+    let len = tabs.length
+
+    for(let i = 0; i < len; i++)
     {
       tabs[i].addEventListener("click", function(){
         if (articles[i].classList.contains("d-hidden")) {
-          for(let j = 0; j < 3; j++) {
+          for(let j = 0; j < len; j++) {
             articles[j].classList.add("d-hidden")
           }
           articles[i].classList.remove("d-hidden")
@@ -67,3 +74,9 @@ function sectionTabs() {
 sectionTabs()
 
 
+
+articleHome()
+articleMenu()
+
+
+// TODO: Vérifier que j'ai besoin de section.sectionTabs

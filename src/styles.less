@@ -83,6 +83,10 @@ caption {
   margin-@{temp}: @margin;
 }
 
+.w(@width) {
+  width: @width;
+}
+
 .wh(@width, @height: @width) {
   width: @width;
   height: @height;
@@ -107,17 +111,17 @@ body {
 // MARK: Les Tabs
 
 .sectionTabs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
   width: 80%;
 }
 
-.tab {
+.tab-bars {
   display: inline-block;
+  vertical-align: top;
 
-  margin: 0 .22em;
+  .w(30%)
+}
+
+.tab {
   padding: .2em;
   .wh(max-content);
   box-sizing: border-box;
@@ -131,4 +135,10 @@ body {
 
 
 // MARK: Article (home, menu, contact)
+
+.section-articles {
+  display: inline-block;
+
+  .w(70%);
+}
 

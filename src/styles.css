@@ -70,15 +70,14 @@ body {
   background-color: #572200ab;
 }
 .sectionTabs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
   width: 80%;
 }
-.tab {
+.tab-bars {
   display: inline-block;
-  margin: 0 0.22em;
+  vertical-align: top;
+  width: 30%;
+}
+.tab {
   padding: 0.2em;
   width: max-content;
   height: max-content;
@@ -87,4 +86,8 @@ body {
   background-color: black;
   color: white;
   cursor: pointer;
+}
+.section-articles {
+  display: inline-block;
+  width: 70%;
 }
