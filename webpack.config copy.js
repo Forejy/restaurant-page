@@ -1,10 +1,7 @@
 const path = require('path');
 const { webpack } = require('webpack');
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
-const smp = new SpeedMeasurePlugin();
-
-module.exports = smp.wrap({
+module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -20,8 +17,12 @@ module.exports = smp.wrap({
         use: [
           'style-loader',
           'css-loader',
+          "less-loader",
         ]
       }
     ]
   },
-});
+  plugins: [
+    new webpack.SpeedMeasurePlugin(),
+  ],
+};
